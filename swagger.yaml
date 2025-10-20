@@ -1,0 +1,81 @@
+openapi: 3.0.0
+info:
+  title: Inventory API Management (ES6)
+  version: "1.0.0"
+servers:
+  - url: /
+paths:
+  /:
+    get:
+      summary: Health check
+      responses:
+        '200':
+          description: OK
+  /api/products/all-products:
+    get:
+      summary: List products with warehouse quantities
+      responses:
+        '200':
+          description: products
+  /api/warehouse/warehouses/{warehouseId}/products/{productId}/adjust-stock:
+    post:
+      summary: Adjust stock for a product in a warehouse
+      parameters:
+        - name: warehouseId
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                delta:
+                  type: integer
+      responses:
+        '200':
+          description: updated stock
+  /api/purchase-order/purchase-orders:
+    get:
+      summary: List purchase orders
+      responses:
+        '200':
+          description: list
+    post:
+      summary: Create a purchase order (manual)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                product_id:
+                  type: integer
+                warehouse_id:
+                  type: integer
+                quantity:
+                  type: integer
+      responses:
+        '200':
+          description: created
+  /api/purchase-order/purchase-orders/{id}/arrive:
+    post:
+      summary: Mark purchase order as arrived (update stock)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ok

@@ -43,9 +43,9 @@ export async function monitorAndReorder(product_id, warehouse_id) {
 
     if (currentQty >= reorder_threshold) {
       await client.query('COMMIT');
-      return null; // no reorder
+      return null;
     }
-    
+
     const desiredLevel = reorder_threshold * 2;
     const desiredQty = Math.max(0, desiredLevel - currentQty);
 

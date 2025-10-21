@@ -1,3 +1,5 @@
+-- These are test mock data for the inventory management system
+
 INSERT INTO suppliers (name, contact_info) VALUES
 ('ACME Supplies', '{"email":"acme@example.com","phone":"+123456789"}'),
 ('Global Widgets', '{"email":"widgets@example.com","phone":"+198765432"}');
@@ -15,3 +17,6 @@ INSERT INTO warehouse_products (warehouse_id, product_id, quantity) VALUES
 (1, 2, 20),
 (2, 1, 10),
 (2, 2, 40);
+
+
+-- These are test mock data for the inventory management system

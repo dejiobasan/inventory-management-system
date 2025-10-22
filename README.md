@@ -24,6 +24,13 @@ Built using Node.js (ES6), Express, and PostgreSQL with modern development stand
 1. Clone the Repository: git clone https://github.com/yourusername/inventory-management-backend.git, cd inventory-management-backend
 2. Install Dependencies: Yarn Install or Npm install
 3. configure DOTENV with your preferred port and postgreSQL Database URL.
-4. 
+4. Initialize the Database
 
+**Running the server**
+Run the development server using "yarn dev" or "npm run dev"
 
+**Author**
+Ayodeji Obasan
+
+**License**
+This project is licensed under the MIT License.
